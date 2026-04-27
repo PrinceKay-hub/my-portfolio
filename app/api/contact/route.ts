@@ -21,8 +21,8 @@ export async function POST(request: Request) {
     });
 
     const mailOptions = {
-      from: `"${name} (via Portfolio)" <${process.env.EMAIL_USER}>`,  // Your email, but with sender's name
-      replyTo: email,  // 👈 This is key: replies go to the visitor
+      from: `"${name} (via Portfolio)" <${process.env.EMAIL_USER}>`,  
+      replyTo: email,  
       to: process.env.RECIPIENT_EMAIL || process.env.EMAIL_USER,
       subject: `Portfolio Contact: ${name}`,
       text: `Name: ${name}\nEmail: ${email}\nMessage:\n${message}\n\n---\nReply directly to ${email}`,

@@ -61,6 +61,12 @@ const EXPERIENCE = [
   },
 ];
 
+const SOCIAL_LINKS = {
+  GitHub: "https://github.com/PrinceKay-hub",
+  LinkedIn: "https://www.linkedin.com/in/prince-koduah-54677b162/",
+  Email: "mailto:koduahprince67@gmail.com",
+};
+
 // ─── Variants ────────────────────────────────────────────────────────────────
 
 const fadeUp: Variants = {
@@ -277,7 +283,6 @@ export default function Portfolio() {
   const handleDownloadCV = () => {
     const link = document.createElement("a");
     link.href = "/cv/developer_cv.pdf";
-    link.download = "Developer_CV.pdf";
     link.click();
   };
 
@@ -604,12 +609,16 @@ export default function Portfolio() {
           </motion.button>
 
           <div className="flex justify-center gap-8">
-            {["GitHub", "LinkedIn", "Twitter", "Email"].map((link) => (
-              <motion.button key={link} whileHover={{ y: -2 }}
-                className="font-mono text-[9px] tracking-widest uppercase transition-colors hover:text-[#00D4FF]"
-                style={{ color: dark ? "#374151" : "#9CA3AF" }}>
-                {link}
-              </motion.button>
+            {Object.entries(SOCIAL_LINKS).map(([name, url]) => (
+              <a
+                key={name}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-[10px] tracking-widest uppercase transition-colors hover:text-[#00D4FF] text-gray-600 dark:text-gray-400"
+              >
+                {name}
+              </a>
             ))}
           </div>
         </div>
